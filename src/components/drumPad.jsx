@@ -6,26 +6,35 @@ import { drumPlayed } from "../redux/actions";
 class DrumPad extends React.Component {
     constructor(props) {
         super(props);
-        this.drumKeyBoard = this.drumKeyBoard.bind(this);
-        this.drumTap = this.drumTap.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.handleDrumClick = this.handleDrumClick.bind(this);
     }
 
-    drumKeyBoard(event) {
-        console.log('keyhit')
-        console.log(event.key)
-        console.log(event.target.value)
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyPress);
     }
 
-    drumTap(event) {
-        document.getElementById(event.target.value).play()
-        this.props.drumPlayed(event.target.value)
+    playDrum(drumId) {
+        document.getElementById(drumId).play()
+        this.props.drumPlayed(drumId)
+    }
+
+    handleKeyPress(event) {
+        if(event.key.toUpperCase() === this.props.padId) {
+            this.playDrum(this.props.padId)
+        }
+    }
+
+    handleDrumClick(event) {
+        this.playDrum(event.target.value)
     }
 
     render() {
         return (
-            <div className="drum-pad">
-                <button onClick={this.drumTap} value={this.props.padId}>{this.props.padId}</button>
-                <audio className="clip" id={this.props.padId} src={this.props.sound}></audio>
+            <div className="drum-pad" id="pad-{{this.props.padId}}">
+                <button onClick={this.handleDrumClick} value={this.props.padId}>{this.props.padId}
+                    <audio className="clip" id={this.props.padId} src={this.props.sound}></audio>
+                </button>
             </div>
         )
     }

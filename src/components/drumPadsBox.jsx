@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import DrumPad from "./drumPad";
 
 class DrumPadsBox extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div id="drum-pads-box">

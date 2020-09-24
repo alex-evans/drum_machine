@@ -2,15 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 
 class Display extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div id="display-box">
                 <div id="display">
-                    { this.props.name }
+                    {this.props.name}
                 </div>
             </div>
         )
