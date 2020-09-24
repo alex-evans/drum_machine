@@ -1,6 +1,6 @@
-import { PLAY_DRUM } from "./actionTypes";
+import { DRUM_PLAYED } from "./actionTypes";
 
-export const playDrum = drumId => ({
-    type: PLAY_DRUM,
+export const drumPlayed = drumId => ({
+    type: DRUM_PLAYED,
     drumPlayed: drumId
 });

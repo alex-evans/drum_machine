@@ -1,1 +1,1 @@
-export const PLAY_DRUM = "PLAY_DRUM";
+export const DRUM_PLAYED = "DRUM_PLAYED";

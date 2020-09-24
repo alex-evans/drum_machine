@@ -1,15 +1,27 @@
-import { PLAY_DRUM } from "../actionTypes";
+import { DRUM_PLAYED } from "../actionTypes";
+
+const drums = {
+    'Q': 'Heater 1',
+    'W': 'Heater 2',
+    'E': 'Heater 3',
+    'A': 'Heater 4',
+    'S': 'Clap',
+    'D': 'Open HH',
+    'Z': 'Kick-n Hat',
+    'X': 'Side Stick',
+    'C': 'Closed HH'
+};
 
 const initialState = {
-    drumPlayed: 'Nothing Played'
-};
+    name: 'No Drum Played'
+}
 
 export default function(state = initialState, action) {
     switch (action.type) {
-        case PLAY_DRUM: {
+        case DRUM_PLAYED: {
+            const drum_name = drums[action.drumPlayed]
             return {
-                ...state,
-                drumPlayed: action.drumPlayed
+                name: drum_name
             }
         };
         default:

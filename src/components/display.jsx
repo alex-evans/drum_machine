@@ -4,16 +4,13 @@ import { connect } from "react-redux";
 class Display extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
     }
 
     render() {
         return (
             <div id="display-box">
                 <div id="display">
-                    { this.props.drumPlayed }
+                    { this.props.name }
                 </div>
             </div>
         )
